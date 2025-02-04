@@ -1,10 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<h1> <%= @project.name %> </h1>
+<p> Status: <%= @project.status %> </p>
+<%= link_to "Back to Home", root_path %>
 
-<%= render @project %>
+<h2> Comments and History </h2>
+<ul>
+    <% @comments.each do |comment| %>
+        <li>
+          <strong><%= comment.user_name %> </strong>: <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          - <%= comment.content %>
+        </li>
+    <% end %>
+</ul>
 
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
+<h3> Add a Comment </h3>
+<%= form_with model: [@project, Comment.new], local: true do |form| %>
+  <p>
+    <%= form.label :user_name %><br>
+    <%= form.text_field :user_name %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <%= form.submit  "Add Comment" %>
+<% end %>
 
-  <%= button_to "Destroy this project", @project, method: :delete %>
-</div>
+<h3>Change Status</h3>
+<%= form_with url: update_status_project_path(@project), method: :patch, local: true do |form| %>
+  <%= form.label :status %>
+  <%= form.select :status, ['Pending', 'In Progress', 'On Hold', 'Completed'], selected: @project.status %>
+  <%= form.submit "Update Status" %>
+<% end %>
