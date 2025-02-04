@@ -1,24 +1,57 @@
-# README
+# Project Conversation History
+  A simple Ruby on Rails application that allows users to:
+  - Leave comments on a project
+  - Change the status of a project
+  - View the conversation history of comments and status changes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  ---
 
-Things you may want to cover:
+# Project Requirements
+  Use Ruby on Rails to build a project conversation history. A user should be able to:
 
-* Ruby version
+  - leave a comment
+  - change the status of the project
 
-* System dependencies
+  The project conversation history should list comments and changes in status.
 
-* Configuration
+# Clarification Questions and their Assumed Answers
+  - User Roles and Permissions:-
+      ```
+      Question: Should all users be able to leave comments and change project statuses?
+      Assumed Answer: Yes.
+      ```
+    
+      ```
+      Question: Should different user roles like admin or member, have varying permissions?
+      Assumed Answer: Only admins can change the project status.
+      ```
+  - Project Statuses:-
+      ```
+      Question: What statuses can a project have (e.g Pending, in Progress, Cancelled, Completed)
+      Assumed Answer: Pending, In Progress, On Hold, Completed.
+      ```
+  - Conversation History Details:-
+      ```
+      Question: Should the history show timestamps for comments and status changes?
+      Assumed Answer: Yes.
+      ```
 
-* Database creation
+      ```
+      Questions: What information should be stored for status changes?
+      Assumed Answer: Include which user made the comment or status change.
+      ```
+  - UI:-
+      ```
+      Question: How should order history be displayed? Chronologically or grouped by type?
+      Assumed Answer: Chronologically in descending order.
+      ```
+  - Data Persistence:-
+      ```
+      Question: Should soft delete or archiving be supported for comments or project statuses?
+      Assumed Answer: Not required for initial task.
+      ```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Screenshots of Working App
+  - ![SS-1](https://github.com/write-arsalan-nawaz/project_conversation_history/blob/main/public/ss-1.png)
+  - ![SS-1](https://github.com/write-arsalan-nawaz/project_conversation_history/blob/main/public/ss-2.png)
+  - ![SS-1](https://github.com/write-arsalan-nawaz/project_conversation_history/blob/main/public/ss-3.png)
